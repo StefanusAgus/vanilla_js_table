@@ -9,6 +9,7 @@ function changePagination() {
 }
 
 function refreshPage(page) {
+    objJson = JSON.parse(json_string)
     var previous_button = document.getElementById("previous_button");
     var next_button = document.getElementById("next_button");    
     if (page < 1) page = 1;
@@ -82,7 +83,9 @@ function numPages() {
 }
 
 window.onload = function() {
-    json_string = localStorage.getItem("jsonObj");
-    objJson = JSON.parse(json_string)
-    refreshPage(1);
+    setTimeout(function(){
+        json_string = localStorage.getItem("jsonObj");
+        objJson = JSON.parse(json_string)
+        refreshPage(1);
+    }, 500); 
 };
